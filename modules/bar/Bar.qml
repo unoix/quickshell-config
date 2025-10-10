@@ -40,6 +40,8 @@ PanelWindow {
 
 			Workspaces {}
 		}
+		//center
+		Clock { anchors.centerIn: parent }
 		//right
 		Row {
 			id: rightRow
