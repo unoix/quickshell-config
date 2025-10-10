@@ -1,16 +1,25 @@
 
 import Quickshell
 import QtQuick
+import Quickshell.Wayland
 //import QtMultimedia
 
-FloatingWindow {
+PanelWindow {
 	id: root
-	title: "teto"
+	
+	anchors.right: true
+	anchors.bottom: true
 
 	color: "#00000000"
 
+	implicitWidth: teto.width
+	implicitHeight: teto.height
+
+	mask: Region {}
+
+	WlrLayershell.layer: WlrLayer.Bottom
+
 	AnimatedImage { id: teto; source: "teto.gif" }
-	maximumSize: "498x498"
 
 
 	Rectangle {

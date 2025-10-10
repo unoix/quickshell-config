@@ -10,6 +10,6 @@ import "./modules/stickr/"
 ShellRoot { 
 	id: root
 	Bar {}
-//	Stickr {}
+	Stickr {}
 }
 
