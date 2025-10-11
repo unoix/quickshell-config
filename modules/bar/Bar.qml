@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Hyprland
 import "./widgets"
+import "./widgets/sound/"
 
 PanelWindow {
 	id: root
@@ -52,7 +53,7 @@ PanelWindow {
 				verticalCenter: parent.verticalCenter
 				right: parent.right
 			}
-
+			SoundButton {}
 			Battery {}
 		}
 	}

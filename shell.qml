@@ -12,6 +12,6 @@ ShellRoot {
 	id: root
 	Bar {}
 	Stickr {}
-	BatteryPopup {}
+//	BatteryPopup {}
 }
 

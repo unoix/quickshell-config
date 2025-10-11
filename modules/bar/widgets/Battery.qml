@@ -17,7 +17,7 @@ ClippingRectangle {
 		running: (Math.round(percentage*100) < 15 && !isCharging)
 		alwaysRunToEnd: true
 		loops: Animation.Infinite
-		ColorAnimation { from: "#90ff0000"; to: "transparent"; duration: 1500; easing: OutCubic }
+		ColorAnimation { from: "#ff0000"; to: "transparent"; duration: 2000; easing: InOutCubic }
 	}
 
 	id: battery
@@ -25,7 +25,7 @@ ClippingRectangle {
 	width:	60
 	radius: 12
 	border.width: 1
-	border.color: "white"
+	border.color: "red"
 	color: "transparent"
 //	clip: true
 
@@ -45,11 +45,20 @@ ClippingRectangle {
 		id: batteryText
 		antialiasing: false
 		anchors.centerIn: parent
-		text: isCharging ? "c" : Math.round(percentage*100)
+		text: isCharging ? "" : Math.round(percentage*100)
 		color: "white"
 		font.family: "Iosevka Nerd Font"
 		font.pixelSize: 20
 		font.bold: true
+		
+		SequentialAnimation on color {
+			running: isCharging
+			alwaysRunToEnd: true
+			loops: Animation.Infinite
+			ColorAnimation {from: "#70ffffff"; to: "white"; duration: 1000; easing.type: Easing.OutCubic }
+			ColorAnimation {from: "white"; to: "#30ffffff"; duration: 1000; easing.type: Easing.InCubic }
+		}
+
 	}
 
 }

@@ -21,7 +21,7 @@ Scope {
 
 	Timer {
 		id: hideTimer
-		interval: 1005
+		interval: 1000
 		onTriggered: root.isVisible = false
 	}
 

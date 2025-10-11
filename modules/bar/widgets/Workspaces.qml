@@ -27,10 +27,10 @@ Row {
 
 		Rectangle {
 			anchors.verticalCenter: parent.verticalCenter
-			width: modelData.active ? 48 : 24
+			width: modelData.active ? 54 : 30
 			height: modelData.active ? 24 : 24
 			radius: 12
-			color: modelData.active ? "#ffff0000" : "#303030"
+			color: modelData.active ? "#ffff0000" : "transparent"
 			border.color: "#ff0000"
 			border.width: 2
 
