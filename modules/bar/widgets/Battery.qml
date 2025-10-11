@@ -14,10 +14,10 @@ ClippingRectangle {
 	readonly property bool isCharging: chargeState == UPowerDeviceState.Charging;
 	
 	SequentialAnimation on color {
-		running: (Math.round(percentage*100) < 10 && !isCharging)
+		running: (Math.round(percentage*100) < 15 && !isCharging)
 		alwaysRunToEnd: true
 		loops: Animation.Infinite
-		ColorAnimation { from: "#90ff0000"; to: "transparent"; duration: 1500 }
+		ColorAnimation { from: "#90ff0000"; to: "transparent"; duration: 1500; easing: OutCubic }
 	}
 
 	id: battery
@@ -47,7 +47,7 @@ ClippingRectangle {
 		anchors.centerIn: parent
 		text: isCharging ? "c" : Math.round(percentage*100)
 		color: "white"
-		font.family: "Departure Mono"
+		font.family: "Iosevka Nerd Font"
 		font.pixelSize: 20
 		font.bold: true
 	}

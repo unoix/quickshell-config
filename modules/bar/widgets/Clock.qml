@@ -7,13 +7,14 @@ Rectangle {
 
 	SystemClock {
 		id: clock
-		precision: SystemClock.Minutes;
+		precision: SystemClock.Seconds;
 	}
 
-	Text {
+	Text {	
 		anchors.centerIn: parent
-		text: Qt.formatDateTime(clock.date, "hh\\mm")
-		font.family: "Departure Mono"
+		text: Qt.formatDateTime(clock.date, "hh \\ mm \\ ss")
+		font.family: "Iosevka Nerd Font"
+		font.bold: true
 		font.pixelSize: 20
 		color: "white"
 	}
