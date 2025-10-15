@@ -42,21 +42,39 @@ ClippingRectangle {
 	}
 
 	Text {
+		visible: !isCharging
 		id: batteryText
 		antialiasing: false
 		anchors.centerIn: parent
-		text: isCharging ? "" : Math.round(percentage*100)
+		y: 2
+		text: Math.round(percentage*100)
 		color: "white"
 		font.family: "Iosevka Nerd Font"
 		font.pixelSize: 20
 		font.bold: true
+	}
+	
+	IconImage {
+		visible: isCharging
+		id: batteryIcon
+		implicitSize: 20
+		source: "root:assets/Triangle.svg"
+		//antialiasing: false
+		anchors.horizontalCenter: parent.horizontalCenter
+		y: 3
+		/*text: isCharging ? "" : Math.round(percentage*100)
+		color: "white"
+		font.family: "Iosevka Nerd Font"
+		font.pixelSize: 20
+		font.bold: true */
 		
-		SequentialAnimation on color {
+		SequentialAnimation on opacity {
 			running: isCharging
 			alwaysRunToEnd: true
 			loops: Animation.Infinite
-			ColorAnimation {from: "#70ffffff"; to: "white"; duration: 1000; easing.type: Easing.OutCubic }
-			ColorAnimation {from: "white"; to: "#30ffffff"; duration: 1000; easing.type: Easing.InCubic }
+			NumberAnimation {from: 0.0; to: 1.0; duration: 1000; easing.type: Easing.OutCubic }
+			NumberAnimation {from: 1.0; to: 1.0; duration: 500 }
+			NumberAnimation {from: 1.0; to: 0.0; duration: 1000; easing.type: Easing.InCubic }
 		}
 
 	}

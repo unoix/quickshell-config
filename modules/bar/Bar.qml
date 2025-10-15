@@ -15,7 +15,7 @@ PanelWindow {
 
 	implicitHeight: 24
 	margins {
-		top: 2
+		top: 4
 		left: 5
 		right: 5
 		bottom: 2
@@ -25,7 +25,6 @@ PanelWindow {
 		id: bar
 		anchors.fill: parent
 		color: "#00000000"
-
 
 		//widgets
 		//left
@@ -53,7 +52,8 @@ PanelWindow {
 				verticalCenter: parent.verticalCenter
 				right: parent.right
 			}
-			SoundButton {}
+			SoundSelector {xOffset: (1920-implicitWidth); yOffset: 30; anchor.window: root}
+			SoundButton { id: soundButton }
 			Battery {}
 		}
 	}

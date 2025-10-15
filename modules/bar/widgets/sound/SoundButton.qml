@@ -32,13 +32,13 @@ Rectangle {
 		anchors.fill: parent
 		hoverEnabled: true
 		onEntered: isHovered = true
-		onExited: hideTimer.restart()
+		onExited: hideTimer.running = true
 		propagateComposedEvents: true
 	}
 
 	Timer {
 		id: hideTimer
-		interval: 200
+		interval: 1000
 		onTriggered: isHovered = false
 	}
 
