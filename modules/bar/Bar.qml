@@ -13,9 +13,9 @@ PanelWindow {
 		right: true
 	}
 
-	implicitHeight: 24
+	implicitHeight: 26
 	margins {
-		top: 4
+		top: 5
 		left: 5
 		right: 5
 		bottom: 2

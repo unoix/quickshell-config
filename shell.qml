@@ -13,7 +13,7 @@ ShellRoot {
 	id: root
 	Line {}
 	Bar {}
-	Stickr {}
+//	Stickr {}
 //	BatteryPopup {}
 }
 

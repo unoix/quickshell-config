@@ -29,16 +29,17 @@ Rectangle {
 	}
 
 	MouseArea {
-		anchors.fill: parent
+		id: hoverArea
+		anchors.fill: root
 		hoverEnabled: true
-		onEntered: isHovered = true
-		onExited: hideTimer.running = true
-		propagateComposedEvents: true
+		onEntered: { isHovered = true; hideTimer.stop() }
+		onExited: hideTimer.restart()
+  	propagateComposedEvents: true
 	}
 
 	Timer {
 		id: hideTimer
-		interval: 1000
+		interval: animSpeed * 3 
 		onTriggered: isHovered = false
 	}
 
@@ -133,6 +134,7 @@ Rectangle {
 					}
 				}
 			]
+			
 			id: volumeSlider
 			anchors.verticalCenter: parent.verticalCenter
 			width: sliderWidth
@@ -166,9 +168,7 @@ Rectangle {
 				color: "black"
 			}
 
-			onMoved: Pipewire.defaultAudioSink.audio.volume = value/100
+			onMoved: {Pipewire.defaultAudioSink.audio.volume = value/100; hideTimer.stop()}
 		}
-		//}
-
 	}
 }

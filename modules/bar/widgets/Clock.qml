@@ -12,7 +12,7 @@ Rectangle {
 
 	Text {	
 		anchors.centerIn: parent
-		text: Qt.formatDateTime(clock.date, "hh \\ mm \\ ss")
+		text: Qt.formatDateTime(clock.date, "< hh \\ mm \\ ss >")
 		font.family: "Iosevka Nerd Font"
 		font.bold: true
 		font.pixelSize: 20
