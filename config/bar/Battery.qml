@@ -11,12 +11,13 @@ Rectangle {
 	color: "transparent"
 	border {
 		color: Colors.borderActive 
+		width: 1
 	}
 
 	Text {
 		id: batLevel
 		anchors.centerIn: parent
-		color: "black"
+		color: Colors.text
 
 		text: UPower.displayDevice.percentage*100
 	}

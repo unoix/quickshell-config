@@ -22,14 +22,15 @@ in
 			import QtQuick
 			
 			QtObject {
-				property color bg = "#${config.lib.stylix.colors.base00}"
-				property color bgAlt = "#${config.lib.stylix.colors.base01}"
-				property color base02 = "#${config.lib.stylix.colors.base02}"
-				property color base03 = "#${config.lib.stylix.colors.base03}"
-				property color textAlt = "#${config.lib.stylix.colors.base04}"
-				property color text = "#${config.lib.stylix.colors.base05}"
-				property color base06 = "#${config.lib.stylix.colors.base06}"
-				property color base07 = "#${config.lib.stylix.colors.base07}"
+				property color bg: "#${config.lib.stylix.colors.base00}"
+				property color bgAlt: "#${config.lib.stylix.colors.base01}"
+				property color base02: "#${config.lib.stylix.colors.base02}"
+				property color borderInactive: "#${config.lib.stylix.colors.base03}"
+				property color textAlt: "#${config.lib.stylix.colors.base04}"
+				property color text: "#${config.lib.stylix.colors.base05}"
+				property color base06: "#${config.lib.stylix.colors.base06}"
+				property color base07: "#${config.lib.stylix.colors.base07}"
+				property color borderActive: "#${config.lib.stylix.colors.base0D}"
 			}
 		'';
 	};
