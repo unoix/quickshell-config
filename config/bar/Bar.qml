@@ -12,7 +12,7 @@ PanelWindow {
 		right: true
 	}
 
-	height: Config.barHeight
+	height: Config.barHeight + 2
 //	width: Config.barWidth
 
 	color: "transparent"
@@ -22,7 +22,7 @@ PanelWindow {
 			fill: parent
 			leftMargin: 6
 			rightMargin: 6
-
+			topMargin: 2
 		}
 
 		Battery {}

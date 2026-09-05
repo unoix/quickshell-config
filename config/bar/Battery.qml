@@ -1,45 +1,71 @@
 import QtQuick
+import QtQuick.Effects
 import Quickshell
 import Quickshell.Io
 import Quickshell.Services.UPower
 
 import "root:/"
 
-Rectangle {
-	height: Config.barHeight
-	width: Config.barHeight
-	color: "transparent"
-	border {
-		color: Colors.borderActive 
-		width: 1
-	}
+Item {
+    id: root
 
-	Text {
-		id: batLevel
-		anchors.centerIn: parent
-		color: Colors.text
+    property real collapsedSize: Config.barHeight
+    property real expandedSize: Config.barHeight * 2
 
-		text: UPower.displayDevice.percentage*100
-	}
+    height: Config.barHeight
+    width: Config.barHeight
 
+    // 1. Container for the fill, masked to the circle shape
+    Item {
+        anchors.fill: parent
 
-/*	Process {
-		id: batProc
+        Rectangle {
+            id: fill
+            color: Colors.textAlt
+            width: parent.width
+            // Optional chaining safely handles percentage on startup
+            height: root.height * (UPower.displayDevice?.percentage ?? 0)
+            anchors.bottom: parent.bottom
+        }
 
-		command: ["cat", "/sys/class/power_supply/BAT0/capacity"]
-		running: true
+        layer.enabled: true
+        layer.effect: MultiEffect {
+            maskEnabled: true
+            maskSource: maskTexture
+        }
+    }
 
-		stdout: StdioCollector {
-			onStreamFinished: batLevel.text = this.text
-		}
-	}
+    // 2. Offscreen texture source for MultiEffect
+    ShaderEffectSource {
+        id: maskTexture
+        sourceItem: maskShape
+        hideSource: true // Offscreen render: keeps texture active without drawing maskShape to screen
+    }
 
-	Timer {
-		interval: 1000
-		running: true
-		repeat: true
+    // 3. The shape used as the mask
+    Rectangle {
+        id: maskShape
+        anchors.fill: parent
+        radius: height / 2
+        color: "white" // Opaque white provides full alpha for the mask
+    }
 
-		onTriggered: batProc.running = true
-	}*/
-	
+    // 4. Border overlay drawn on top
+    Rectangle {
+        anchors.fill: parent
+        color: "transparent"
+        radius: height / 2
+        border {
+            color: Colors.borderActive
+            width: 2
+        }
+    }
+
+    // 5. Battery percentage text
+    Text {
+        id: batLevel
+        anchors.centerIn: parent
+        color: Colors.text
+        text: Math.round((UPower.displayDevice?.percentage ?? 0) * 100)
+    }
 }
