@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import "root:/" 
+import Quickshell.Services.UPower
+import qs 
+import qs.modules
 
 PanelWindow {
 	id: root
@@ -15,7 +17,7 @@ PanelWindow {
 	height: Config.barHeight + 2
 //	width: Config.barWidth
 
-	color: "transparent"
+	color: "#ff7c11"
 
 	RowLayout {
 		anchors {
@@ -27,9 +29,13 @@ PanelWindow {
 
 		Battery {}
 
-		Item {}
+		Audio {}
 
-		Item {}
+		Brightness {}
+
+		Text {
+			text: Quickshell.configDir
+		}
 	}
 
 }
